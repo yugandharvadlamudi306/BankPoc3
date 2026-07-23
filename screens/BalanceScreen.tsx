@@ -1,38 +1,40 @@
 import React from 'react';
-import {View,Text,StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import BalanceService from '../services/BalanceService';
 import Loader from '../components/Loader';
+import AppHeader from "../components/AppHeader.tsx";
+import ScreenLayout from "../components/ScreenLayout.tsx";
 
 type RootStackParamList = {
-    Balance:{
-        accountType:string;
+    Balance: {
+        accountType: string;
     };
 };
 
-type Props=NativeStackScreenProps<
+type Props = NativeStackScreenProps<
     RootStackParamList,
     'Balance'
 >;
 
-export default function BalanceScreen({route}:Props){
+export default function BalanceScreen({route}: Props) {
 
-    const[balance,setBalance]=React.useState(0);
-    const[loading,setLoading]=React.useState(true);
+    const [balance, setBalance] = React.useState(0);
+    const [loading, setLoading] = React.useState(true);
 
-    React.useEffect(()=>{
+    React.useEffect(() => {
 
         loadBalance();
 
-    },[]);
+    }, []);
 
-    const loadBalance=async()=>{
+    const loadBalance = async () => {
 
-        const response=await BalanceService.getBalance({
+        const response = await BalanceService.getBalance({
 
-            userId:1,
-            accountType:route.params.accountType
+            userId: 1,
+            accountType: route.params.accountType
 
         });
 
@@ -42,60 +44,135 @@ export default function BalanceScreen({route}:Props){
 
     };
 
-    if(loading){
+    if (loading) {
 
-        return<Loader/>;
+        return <Loader/>;
 
     }
 
-    return(
+    return (
+        <ScreenLayout
+            title="Account Balance"
+            subtitle="Available Balance"
+            showHeader={true}>
+            <View style={styles.container}>
+{/*
+                <AppHeader
+                    title="Banking POC"
+                    subtitle="Secure Digital Banking"
+                />
+*/}
+                <Text style={styles.header}>
+                    Account Details
+                </Text>
 
-        <View style={styles.container}>
+                <View style={styles.card}>
 
-            <Text style={styles.title}>
-                Account
-            </Text>
+                    <Text style={styles.account}>
+                        {route.params.accountType}
+                    </Text>
 
-            <Text style={styles.value}>
-                {route.params.accountType}
-            </Text>
+                    <Text style={styles.balanceLabel}>
+                        Available Balance
+                    </Text>
 
-            <Text style={styles.title}>
-                Available Balance
-            </Text>
+                    <Text style={styles.balance}>
+                        ₹ {balance.toLocaleString()}
+                    </Text>
 
-            <Text style={styles.balance}>
-                ₹ {balance}
-            </Text>
+                    <View style={styles.divider}/>
 
-        </View>
+                    <Text style={styles.currency}>
+                        Currency
+                    </Text>
+
+                    <Text style={styles.currencyValue}>
+                        INR
+                    </Text>
+
+                </View>
+
+            </View>
+        </ScreenLayout>
 
     );
-
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
 
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center'
+    container: {
+        flex: 1,
+        backgroundColor: "#F5F7FA",
+        padding: 20,
     },
 
-    title:{
-        fontSize:18,
-        marginTop:20
+    header: {
+        fontSize: 28,
+        fontWeight: "bold",
+        marginTop: 40,
+        marginBottom: 30,
+        color: "#1E40AF",
     },
 
-    value:{
-        fontSize:22,
-        fontWeight:'bold'
+    card: {
+        backgroundColor: "#FFF",
+        padding: 30,
+        borderRadius: 20,
+
+        elevation: 8,
+
+        shadowColor: "#000",
+
+        shadowOpacity: 0.15,
+
+        shadowRadius: 12,
+
+        shadowOffset: {
+            width: 0,
+            height: 8
+        },
     },
 
-    balance:{
-        fontSize:36,
-        fontWeight:'bold',
-        color:'green'
-    }
+    account: {
+        fontSize: 24,
+        fontWeight: "700",
+        textAlign: "center",
+        marginBottom: 25,
+        color: "#111827",
+    },
+
+    balanceLabel: {
+        fontSize: 16,
+        textAlign: "center",
+        color: "#6B7280",
+    },
+
+    balance: {
+        fontSize: 40,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginTop: 10,
+        color: "#16A34A",
+    },
+
+    divider: {
+        height: 1,
+        backgroundColor: "#E5E7EB",
+        marginVertical: 30,
+    },
+
+    currency: {
+        fontSize: 16,
+        textAlign: "center",
+        color: "#6B7280",
+    },
+
+    currencyValue: {
+        fontSize: 22,
+        fontWeight: "700",
+        textAlign: "center",
+        marginTop: 8,
+        color: "#1E40AF",
+    },
 
 });

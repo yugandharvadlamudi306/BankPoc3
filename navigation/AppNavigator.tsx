@@ -26,6 +26,7 @@ const AppNavigator = () => {
                 screenOptions={{
                     headerTitleAlign: 'center',
                     animation: 'slide_from_right',
+                    headerShown:false
                 }}>
                 <Stack.Screen
                     name="Login"

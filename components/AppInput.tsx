@@ -4,6 +4,7 @@ import {
     StyleSheet,
     TextInputProps,
 } from 'react-native';
+
 import Colors from '../constants/Colors';
 
 const AppInput = (props: TextInputProps) => {
@@ -20,12 +21,20 @@ export default AppInput;
 
 const styles = StyleSheet.create({
     input: {
-        borderWidth: 1,
-        borderColor: Colors.border,
-        borderRadius: 8,
-        paddingHorizontal: 15,
-        height: 50,
-        marginVertical: 10,
+        height: 55,
+
         backgroundColor: Colors.white,
+
+        borderRadius: 12,
+
+        borderWidth: 1,
+
+        borderColor: Colors.border,
+
+        paddingHorizontal: 18,
+
+        marginTop: 15,
+
+        fontSize: 16,
     },
 });

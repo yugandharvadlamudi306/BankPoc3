@@ -5,6 +5,7 @@ import {
     StyleSheet,
     TouchableOpacityProps,
 } from 'react-native';
+
 import Colors from '../constants/Colors';
 
 interface Props extends TouchableOpacityProps {
@@ -13,7 +14,10 @@ interface Props extends TouchableOpacityProps {
 
 const AppButton = ({title, ...props}: Props) => {
     return (
-        <TouchableOpacity style={styles.button} {...props}>
+        <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.button}
+            {...props}>
             <Text style={styles.title}>{title}</Text>
         </TouchableOpacity>
     );
@@ -24,14 +28,25 @@ export default AppButton;
 const styles = StyleSheet.create({
     button: {
         backgroundColor: Colors.primary,
-        padding: 15,
-        borderRadius: 8,
+
+        height: 55,
+
+        borderRadius: 12,
+
+        justifyContent: 'center',
+
         alignItems: 'center',
-        marginVertical: 10,
+
+        marginTop: 20,
+
+        elevation: 5,
     },
+
     title: {
         color: Colors.white,
-        fontSize: 16,
-        fontWeight: '600',
+
+        fontSize: 18,
+
+        fontWeight: '700',
     },
 });

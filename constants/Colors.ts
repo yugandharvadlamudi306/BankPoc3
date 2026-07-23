@@ -1,23 +1,21 @@
 const Colors = {
-    primary: '#1565C0',
-    secondary: '#42A5F5',
+    primary: '#1E40AF',
+    secondary: '#2563EB',
+    background: '#F5F7FA',
 
     white: '#FFFFFF',
-    black: '#000000',
 
-    background: '#F5F5F5',
+    black: '#111827',
 
-    textPrimary: '#212121',
-    textSecondary: '#757575',
+    textSecondary: '#6B7280',
 
-    border: '#D6D6D6',
+    border: '#D1D5DB',
 
-    success: '#4CAF50',
-    error: '#E53935',
+    success: '#16A34A',
 
-    buttonText: '#FFFFFF',
+    danger: '#DC2626',
 
-    card: '#FFFFFF',
+    inputBackground: '#FFFFFF',
 };
 
 export default Colors;

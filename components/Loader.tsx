@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-    ActivityIndicator,
     View,
+    ActivityIndicator,
     StyleSheet,
 } from 'react-native';
+
 import Colors from '../constants/Colors';
 
 const Loader = () => {
@@ -21,8 +22,6 @@ export default Loader;
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 30,
+        marginTop: 25,
     },
 });
