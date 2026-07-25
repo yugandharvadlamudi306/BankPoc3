@@ -1,6 +1,5 @@
 export interface BalanceResponse {
-    success: boolean;
-    accountType: string;
-    balance: number;
-    currency: string;
+    id: boolean;
+    accountId: string;
+    availableBalance: number;
 }

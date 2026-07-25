@@ -1,4 +1,4 @@
 export interface BalanceRequest {
-    userId: number;
-    accountType: string;
+    id: number;
+    accountId: string;
 }

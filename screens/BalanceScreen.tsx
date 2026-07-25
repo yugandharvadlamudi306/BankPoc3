@@ -9,6 +9,7 @@ import ScreenLayout from "../components/ScreenLayout.tsx";
 
 type RootStackParamList = {
     Balance: {
+        id:number
         accountType: string;
     };
 };
@@ -33,15 +34,13 @@ export default function BalanceScreen({route}: Props) {
 
         const response = await BalanceService.getBalance({
 
-            userId: 1,
-            accountType: route.params.accountType
+            id: route.params.id,
+            accountId:route.params.accountType,
 
         });
-
-        setBalance(response.balance);
+        setBalance(response[0].availableBalance);
 
         setLoading(false);
-
     };
 
     if (loading) {
@@ -56,12 +55,6 @@ export default function BalanceScreen({route}: Props) {
             subtitle="Available Balance"
             showHeader={true}>
             <View style={styles.container}>
-{/*
-                <AppHeader
-                    title="Banking POC"
-                    subtitle="Secure Digital Banking"
-                />
-*/}
                 <Text style={styles.header}>
                     Account Details
                 </Text>

@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "yugandhar",
+      "username": "admin",
+      "password": "1234"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "account": "Savings",
+      "value": "savings"
+    },
+    {
+      "id": 2,
+      "account": "Current",
+      "value": "current"
+    },
+    {
+      "id": 3,
+      "account": "Salary",
+      "value": "salary"
+    }
+  ],
+  "balances": [
+    {
+      "id": 1,
+      "accountId": 1,
+      "availableBalance": 65000
+    },
+    {
+      "id": 2,
+      "accountId": 2,
+      "availableBalance": 75000
+    },
+    {
+      "id": 3,
+      "accountId": 3,
+      "availableBalance": 85000
+    }
+  ]
+}

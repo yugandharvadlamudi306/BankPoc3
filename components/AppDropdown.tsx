@@ -2,11 +2,12 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 import Colors from '../constants/Colors';
+import {AccountsResponse} from "../model/AccountsResponse.ts";
 
 interface Props {
-    data: any[];
+    data: AccountsResponse[];
     value: string;
-    onChange: (item: any) => void;
+    onChange: (item: AccountsResponse) => void;
 }
 
 const AppDropdown = ({data, value, onChange}: Props) => {
@@ -14,7 +15,7 @@ const AppDropdown = ({data, value, onChange}: Props) => {
         <Dropdown
             style={styles.dropdown}
             data={data}
-            labelField="label"
+            labelField="account"
             valueField="value"
             placeholder="Select Account"
             value={value}
