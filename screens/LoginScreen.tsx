@@ -17,7 +17,6 @@ import AppInput from '../components/AppInput';
 import AppButton from '../components/AppButton';
 import AuthService from '../services/AuthService';
 import Loader from '../components/Loader';
-import AppHeader from "../components/AppHeader.tsx";
 import ScreenLayout from "../components/ScreenLayout.tsx";
 
 type RootStackParamList = {
@@ -27,7 +26,7 @@ type RootStackParamList = {
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
-export default function LoginScreen({navigation}: Props) {
+export default function LoginScreen({navigation}: Readonly<Props>) {
     const [loading, setLoading] = React.useState(false);
 
     const {control, handleSubmit} = useForm({

@@ -4,7 +4,6 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import BalanceService from '../services/BalanceService';
 import Loader from '../components/Loader';
-import AppHeader from "../components/AppHeader.tsx";
 import ScreenLayout from "../components/ScreenLayout.tsx";
 
 type RootStackParamList = {
@@ -19,7 +18,7 @@ type Props = NativeStackScreenProps<
     'Balance'
 >;
 
-export default function BalanceScreen({route}: Props) {
+export default function BalanceScreen({route}: Readonly<Props>) {
 
     const [balance, setBalance] = React.useState(0);
     const [loading, setLoading] = React.useState(true);

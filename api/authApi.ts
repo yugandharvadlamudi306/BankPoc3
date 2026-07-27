@@ -4,7 +4,6 @@ export const loginApi = async (userName: string, password: string) => {
     console.log("loginApi userName", userName);
     try{
     const response = await axiosClient.get("/users?username=" + userName);
-    console.log("check->"+response);
     return response.data;}
     catch(error:any){
         console.log("========== API ERROR ==========");

@@ -18,7 +18,7 @@ type RootStackParamList = {
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
 
-export default function DashboardScreen({navigation}: Props) {
+export default function DashboardScreen({navigation}: Readonly<Props>) {
 
     const [selected, setSelected] = React.useState('');
     const [dropDown, setDropDown] = React.useState<AccountsResponse[]>([]);
@@ -63,7 +63,7 @@ export default function DashboardScreen({navigation}: Props) {
                         title="VIEW BALANCE"
                         onPress={() => {
                             const accountObject = dropDown.find((item) => {
-                               return item.value === selected
+                                return item.value === selected
                             }) ?? {
                                 id: 0,
                                 account: "saving",
