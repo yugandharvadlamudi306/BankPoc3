@@ -10,9 +10,11 @@ const axiosClient = axios.create({
 
 });
 axiosClient.interceptors.request.use(config => {
-    console.log("Base URL:", config.baseURL);
-    console.log("URL:", config.url);
-    console.log("Full URL:", `${config.baseURL}${config.url}`);
+    if(__DEV__) {
+        console.log("Base URL:", config.baseURL);
+        console.log("URL:", config.url);
+        console.log("Full URL:", `${config.baseURL}${config.url}`);
+    }
     return config;
 });
 export default axiosClient;
