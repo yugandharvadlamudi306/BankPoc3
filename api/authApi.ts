@@ -1,7 +1,7 @@
 import axiosClient from "./axiosClient.ts";
 
 export const loginApi = async (userName: string, password: string) => {
-    console.log("loginApi userName", userName);
+    if(__DEV__)console.log("loginApi userName", userName);
     try{
     const response = await axiosClient.get("/users?username=" + userName);
     return response.data;}

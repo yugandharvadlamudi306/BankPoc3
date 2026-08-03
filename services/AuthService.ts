@@ -7,7 +7,6 @@ class AuthService {
     async login(loginRequest: LoginRequest): Promise<LoginResponse> {
         const response = await loginApi(loginRequest.username,loginRequest.password);
         const users  = await response;
-        console.log(users)
         if(users.length===0){
             throw new Error('Invalid Username or Password');
         }
